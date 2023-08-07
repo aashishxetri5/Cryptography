@@ -21,15 +21,17 @@ def getCipher(text, rails):
 
     return ciphertext
 
-
+#Decipher
 def getDecipher(text, rails):
 
     deciphertext = ""
     length = int(len(text)/rails)
     
+    # Outer loop runs through the length of columns
     for i in range(0, length):
+        #Inner loop runs though the rows of columns
         for j in range(0, rails):
-            deciphertext += text[length*j + i]
+            deciphertext += text[length*j + i] #formula to extract alphabets from correct positions.
     
     return deciphertext
 
