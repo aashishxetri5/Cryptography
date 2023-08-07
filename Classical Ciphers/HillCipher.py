@@ -41,8 +41,7 @@ def inverseOfKey(key):
 
 #Input Data
 
-plain_text = "algebra"
-plain_text = plain_text.upper().replace(" ", "")
+plain_text = input("Enter the plain text: ").replace(" ", "").upper()
 
 key = np.array([[5, 8], [17, 3]])
 
