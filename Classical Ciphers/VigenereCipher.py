@@ -5,7 +5,7 @@ alphabets = {chr(65+i):i for i in range(26)}
 rev_alphabets = {val:key for key, val in alphabets.items()}
 
 key = 'LEMON'
-key = (key + key * (len(plain_text)%len(key)))[:len(plain_text)]
+key = (key + key * int(len(plain_text)/len(key)))[:len(plain_text)]
 
 encrypted_text = ""
 decrypted_text = ""
