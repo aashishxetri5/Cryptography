@@ -8,8 +8,7 @@ plain_text = plain_text.upper().replace(' ', '') #Removing spaces from the text
 alphabets = {chr(65 + i): i for i in range(26)} #Generates all the alphabets with their indexing
 
 key = r.randrange(1, 26) #Generates a number randomly to add to the text
-encrypted_text = ""
-decrypted_text = ""
+encrypted_text = decrypted_text = ""
 
 #Reverse Dictionary
 num_to_alphabet = {val: key for key, val in alphabets.items()}

@@ -7,7 +7,7 @@ def getCipher(text, rails):
     for i in range(rails):
         ctext = ''
         for j in range(i, len(text), rails):
-            ctext = ctext + (plain_text[j]) 
+            ctext += (text[j]) 
         
         if i == 0:
             length_row = len(ctext) #setting length of first row to add extra alphabets later in other rows to match dimension
