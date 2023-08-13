@@ -14,7 +14,7 @@ def cipherDecipher(text, key):
         product = np.dot(key, block) % 26
         text += "".join(chr(65 + i) for i in product)
 
-    return text
+    return text, num_of_padding
 
 def inverseOfKey(key):
     # Determinant
@@ -46,12 +46,12 @@ plain_text = input("Enter the plain text: ").replace(" ", "").upper()
 key = np.array([[5, 8], [17, 3]])
 
 # Encryption
-cipher_text = cipherDecipher(plain_text, key)
+cipher_text, paddings = cipherDecipher(plain_text, key)
 print("Cipher Text: " + cipher_text)
 
 #inverse of the key.
 inv_key = inverseOfKey(key)
 
 # Decryption
-decipher_text = cipherDecipher(cipher_text, inv_key)
-print("Deciphered Text: " + decipher_text[:(len(cipher_text)-1)]) #omiting the padded numbers
+decipher_text, temp = cipherDecipher(cipher_text, inv_key)
+print("Deciphered Text: " + decipher_text[:(len(cipher_text)-paddings)]) #omiting the padded numbers

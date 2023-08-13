@@ -1,3 +1,6 @@
+extra_letter_pos = []
+
+
 def generate_playfair_matrix(key):
     key = key.replace("J", "I")  # Replace J with I
     key += "ABCDEFGHIKLMNOPQRSTUVWXYZ"
@@ -41,6 +44,7 @@ def playfair_encrypt(plaintext, key):
         if i == len(plaintext) - 1 or plaintext[i] == plaintext[i + 1]:
             pairs.append(plaintext[i] + "X")
             i += 1
+            extra_letter_pos.append(i)
         else:
             pairs.append(plaintext[i] + plaintext[i + 1])
             i += 2
@@ -95,4 +99,9 @@ encrypted_name = playfair_encrypt(plaintext, key)
 print("Encrypted:", encrypted_name)
 
 decrypted_name = playfair_decrypt(encrypted_name, key)
-print("Decrypted:", decrypted_name)
+print("Decrypted: ", end="")
+
+for char in decrypted_name:
+    if decrypted_name.index(char) in extra_letter_pos:
+        continue
+    print(char, end="")
