@@ -13,6 +13,7 @@ def checkPrimitiveRoot(num):
 
         for i in range(1, num):
             mod = (number**i) % num
+            
             if mod not in mod_result:
                 mod_result.append(mod)
             else:
@@ -22,7 +23,7 @@ def checkPrimitiveRoot(num):
         if is_primitve:
             primitive_roots.append(number)
         
-        mod_result.clear
+        mod_result.clear()
     
     return primitive_roots
 
@@ -33,4 +34,4 @@ if(isPrime(num)):
     primitive_roots = checkPrimitiveRoot(num)
     print(primitive_roots)
 else:
-    print(f"{num} must be a Prime")
+    print(f"{num} is not a Prime number")
