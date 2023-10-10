@@ -97,8 +97,8 @@ def compression_function(message):
 
     # Compression Loop
     for t in range(80):
-        T1 = h + (Ch(e, f, g) + (rotr(e, 14) ^ rotr(e, 18) ^ rotr(e, 41)) + K[t] + W[t])
-        T2 = (rotr(a, 28) ^ rotr(a, 34) ^ rotr(a, 39)) + Maj(a, b, c)
+        T1 = h + (Ch(e, f, g) + summation_e(e) + K[t] + W[t])
+        T2 = summation_a(a) + Maj(a, b, c)
 
         h = g
         g = f
