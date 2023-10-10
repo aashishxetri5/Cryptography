@@ -129,5 +129,5 @@ blocks = divide_to_blocks(padded_message)
 for block in blocks:
     compression_function(block)
 
-sha512_hash = "".join(format(h, "016x") for h in HASH_VALUE)
-print(sha512_hash)
+final_hash = "".join(format(h, "016x") for h in HASH_VALUE)
+print(final_hash)
