@@ -22,7 +22,7 @@ SHA-512 is a cryptographic hash function that outputs a 512-bit (64-byte) hash v
 
 ---
 
-#Functions Used
+## Functions Used
 
 #### Ch(e, f, g)
 
