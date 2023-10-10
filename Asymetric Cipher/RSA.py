@@ -17,12 +17,10 @@ def getPrime():
         else:
             continue
 
-
 def getPrivateKey(publicKey, phi):
     for i in range(1, phi):
         if (publicKey * i) % phi == 1:
             return i
-
 
 def encryption(plaintext, n, publicKey):
     return (plaintext**publicKey) % n
@@ -32,14 +30,11 @@ def decryption(encrText, n, Kprivate):
 
 p = getPrime()
 q = getPrime()
-print(p, q)
 
 n = p * q
-print(n)
 
 phi = (p - 1) * (q - 1)
 publicKey = r.randint(1, phi - 1)
-print(phi, publicKey)
 
 while True:
     if phi % publicKey == 0:
@@ -48,15 +43,16 @@ while True:
         break
 
 Kprivate = getPrivateKey(publicKey, phi)
-print(Kprivate)
 
 # Encryption
-plainText = int(input(f"Enter a number below {p} and {q}: "))
+plainText = int(input(f"Enter a number below {max(p,q)}: "))
 # plainText = ord(plainText)
+
+if(plainText > max(p, q)):
+    exit()
 
 y = encryption(plainText, n, publicKey)
 x = decryption(y, n, Kprivate)
 
-print("Encrypted text: ", plainText)
 print("Encrypted text: ", y)
 print("Decrypted text: ", x)
